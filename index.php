@@ -3,11 +3,11 @@
 # Include the Autoloader (see "Libraries" for install instructions)
 require 'vendor/autoload.php';
 
-$key = json_decode(file_get_contents('config.json'), true)['from'];
-$domain = json_decode(file_get_contents('config.json'), true)['domain'];
-$from = json_decode(file_get_contents('config.json'), true)['from'];
-
 function send($to, $body, $subject) {
+  $key = json_decode(file_get_contents('config.json'), true)['key'];
+  $domain = json_decode(file_get_contents('config.json'), true)['domain'];
+  $from = json_decode(file_get_contents('config.json'), true)['from'];
+
   $client = new \Http\Adapter\Guzzle6\Client();
   $mg = new \Mailgun\Mailgun($key, $client);
 
