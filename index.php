@@ -3,15 +3,16 @@
 # Include the Autoloader (see "Libraries" for install instructions)
 require 'vendor/autoload.php';
 
-function send($to, $body, $subject) {
-  $key = 'key-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
-  $domain = 'sandbox7bda4f14f87341b2ac3d8977b6721306.mailgun.org';
+$key = json_decode(file_get_contents('config.json'), true)['from'];
+$domain = json_decode(file_get_contents('config.json'), true)['domain'];
+$from = json_decode(file_get_contents('config.json'), true)['from'];
 
+function send($to, $body, $subject) {
   $client = new \Http\Adapter\Guzzle6\Client();
   $mg = new \Mailgun\Mailgun($key, $client);
 
   $mg->sendMessage($domain, array(
-    'from'    => 'postmaster@sandbox7bda4f14f87341b2ac3d8977b6721306.mailgun.org',
+    'from'    => $from.'@'.$domain,
     'to'      => $to,
     'subject' => $subject,
     'html'    => $body));
