@@ -20,9 +20,16 @@ function send($to, $body, $subject) {
   return true;
 }
 
-$employer = 'my-company-test';
+$request = json_decode($HTTP_RAW_POST_DATA);
+
+var_dump($request);
+
+$employer = $request['company'];
+
+// $employer = 'my-company-test';
+var_dump($employer);
 $code = 12;
-$html = <<<EOT
+$inviteEmail = <<<EOT
 <!DOCTYPE html>
 <html>
 
@@ -68,5 +75,5 @@ $html = <<<EOT
 
 </html>
 EOT;
-send('punchtimeio@gmail.com',$html,'Welcome to punchtime!');
+send('punchtimeio@gmail.com',$inviteEmail,'Welcome to punchtime!');
 echo 'done with sending and stuff';
