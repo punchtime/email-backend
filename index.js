@@ -1,16 +1,16 @@
 'use strict';
-const config = require('./config.json');
-const mailgun = require('mailgun-js')({apiKey: config.key, domain: config.domain});
-const Firebase = require('firebase');
-const base = new Firebase('https://scorching-inferno-1467.firebaseio.com/');
-let employer = 'k', code = 'x';
+var config = require('./config.json');
+var mailgun = require('mailgun-js')({apiKey: config.key, domain: config.domain});
+var Firebase = require('firebase');
+var base = new Firebase('https://scorching-inferno-1467.firebaseio.com/');
+var employer = 'k', code = 'x';
 
 base.child('invites').on('child_added',snap=>{
   console.log(snap.val());
   if (snap.val().sent != true) {
-    let code = snap.key();
-    let employer = snap.val().company.name;
-    let emailTemp = `
+    var code = snap.key();
+    var employer = snap.val().company.name;
+    var emailTemp = `
     <!DOCTYPE html>
     <html>
     <head>
