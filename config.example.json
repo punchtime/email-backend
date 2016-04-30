@@ -1,5 +1,9 @@
 {
   "key": "key-aXXXXXXXXXXXXXX",
   "domain": "sandboxXXXXXXXXXXXXX.mailgun.org",
-  "from": "postmaster"
+  "from": "postmaster",
+  "login": {
+    "email": "XXXXXXX@XXXXX.com",
+    "password": "XXXXXXXX"
+  }
 }
