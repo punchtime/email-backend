@@ -10,7 +10,7 @@ The email backend is deployed on [uberspace](https://uberspace.de) and mostly ho
 
 1. fill in `config.json`
 2. `npm install`
-3. `npm start` or `npm start-old`
+3. `npm start` or `npm run-script start-old`
 4. Have a drink :beer:
 
 ### perpetually
@@ -18,7 +18,7 @@ The email backend is deployed on [uberspace](https://uberspace.de) and mostly ho
 any way to keep a process alive will work. My perferred way is this:
 
 ```
-$ nohup npm start-old
+$ nohup npm run-script start-old &
 ```
 
 to stop you have to do `ps aux` and then find the PID of either `npm` or `node`. You can kill it with `kill -9 THEPID`.
