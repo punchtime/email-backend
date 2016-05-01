@@ -49,13 +49,27 @@ base.authWithPassword({
           console.log(body);
         });
 
-        base.child('invites').child(snap.key()).child('sent').set(true);
+        base.child('invites')
+            .child(snap.key())
+            .child('sent')
+            .set(true);
       }
     });
-    // todo: if claimed, put in that company etc
+
     base.child('invites').on('child_changed',snap=>{
-      if (snap.val().claimed == 'true') {
-        console.log('it has been claimed!');
+      console.log(snap.val().claimed);
+      if (snap.val().claimed === 'true' || snap.val().claimed === true) {
+        base.child('users')
+            .child(snap.val().user)
+            .child('employee')
+            .child(snap.val().company.id)
+            .set(true);
+        base.child('companies')
+            .child(snap.val().company.id)
+            .child('employees')
+            .child(snap.val().user)
+            .set(true);
+        console.log(`${snap.key()} has been claimed by ${snap.val().user}!`);
       }
     });
   }
