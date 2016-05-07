@@ -4,6 +4,8 @@ const mailgun = require('mailgun-js')({apiKey: config.key, domain: config.domain
 const Firebase = require('firebase');
 const base = new Firebase('https://scorching-inferno-1467.firebaseio.com/');
 
+try {
+
 base.authWithPassword({
   "email": config.login.email,
   "password": config.login.password
@@ -74,3 +76,14 @@ base.authWithPassword({
     });
   }
 });
+
+} catch(e) {
+  mailgun.messages().send({
+    from: 'Punchtime Invitation<'+config.from+'@'+config.domain+'>',
+    to: 'Haroen Viaene <hello@haroen.me>',
+    subject: 'An error in the email occurred',
+    text: e
+  }, function (error, body) {
+    console.log(body);
+  });
+}
