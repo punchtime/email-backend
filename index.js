@@ -34,6 +34,7 @@ base.authWithPassword({
     <p>Then you can add yourself to the team in settings and entering</p>
     <pre><code style="font-family: Menlo, monospace;background-color: lightgrey;margin: 1em;padding: .3em;">${code}</code></pre>
     <p>You can also click on this <a href="punchtime://invite/${code}" title="${code}">link</a> on your phone.</p>
+    <p><a href="punchtime://invite/${code}">punchtime://invite/${code}</a></p>
   </div>
   <p>Greetings!</p>
   <p>Punchtime Team</p>
