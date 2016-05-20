@@ -29,7 +29,7 @@ base.authWithPassword({
     <p>Welcome to <a href="https://punchtime.io">punchtime</a>. Your employer (${employer}) invited you to join their team.</p>
     <p>First download the app:</p>
     <p>
-      <a href="https://play.google.com/"><img height="50px" alt="install punchtime from the app store" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"></a>
+      <a href="https://play.google.com/store/apps/details?id=io.punchtime.punchtime"><img height="50px" alt="install punchtime from the app store" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"></a>
     </p>
     <p>Then you can add yourself to the team in settings and entering</p>
     <pre><code style="font-family: Menlo, monospace;background-color: lightgrey;margin: 1em;padding: .3em;">${code}</code></pre>
